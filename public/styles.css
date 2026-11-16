@@ -58,6 +58,18 @@ button:disabled { opacity: .5; cursor: default; }
 
 .hint { color: #6a7382; font-size: .85rem; }
 
+.pending { color: #2457c5; font-weight: 600; font-size: .9rem; margin: .4rem 0; }
+.spinner {
+  display: inline-block;
+  width: .8rem; height: .8rem;
+  border: 2px solid #cbd8f5;
+  border-top-color: #2457c5;
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+  vertical-align: middle;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
 .bar {
   display: flex;
   justify-content: space-between;

@@ -169,9 +169,11 @@ lo que permite simular un catálogo lento sin cambiar código.
 
 - **Producto inexistente:** el autor recibe un `failure` con `not_found`; el
   resto de la propuesta se agrega igual.
-- **Catálogo lento / sin respuesta:** al superar el timeout, el autor recibe
-  `timeout`. Los demás participantes **no se enteran** y siguen operando con
-  normalidad, porque la espera es asíncrona y no bloquea el event loop.
+- **Catálogo lento / sin respuesta:** mientras se consulta, quien propone ve
+  «Consultando el catálogo…» con un spinner; el ranking sigue igual hasta que
+  llegan los datos. Al superar el timeout, el autor recibe `timeout`. Los demás
+  participantes **no se enteran** y siguen operando con normalidad, porque la
+  espera es asíncrona y no bloquea el event loop.
 - **Error de red o datos incompletos:** se informa como `catalog_error`.
 - En todos los casos, el autor ve el detalle en el panel **Resultados**; los
   productos válidos aparecen en el ranking apenas se aplican.
@@ -264,6 +266,16 @@ tp4-realtime/
 
 ## 9. Evidencia
 
-Espacio reservado para el video/GIF con tres participantes y la pantalla
-sincronizados, y las capturas de: propuesta con fallos parciales, catálogo
-lento y respuesta a un mensaje inválido (ver carpeta `evidencia/`).
+La carpeta `evidencia/` contiene el **GIF con tres participantes y la pantalla
+sincronizados** y las capturas de: propuesta con fallos parciales (y cómo la ve
+otro participante), catálogo lento y respuesta a mensajes inválidos.
+
+Se generan de forma reproducible con:
+
+```bash
+npm run build
+npm run evidence
+```
+
+Requiere Chrome o Edge instalado (o definir `CHROME_PATH`). El listado detallado
+de archivos está en `evidencia/README.md`.

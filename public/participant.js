@@ -69,6 +69,7 @@ function handleMessage(msg, name) {
       break;
 
     case 'proposeResult': {
+      el('pending').hidden = true;
       if (msg.added.length) logLine(`Agregados: ${msg.added.join(', ')}`);
       for (const failure of msg.failures) {
         logLine(`Fallo id ${failure.productId} (${failure.reason}): ${failure.message}`, true);
@@ -188,6 +189,7 @@ el('propose-form').addEventListener('submit', (event) => {
   }
   logLine(`Proponiendo ids: ${productIds.join(', ')}…`);
   el('ids-input').value = '';
+  el('pending').hidden = false;
   send({ type: 'propose', productIds });
 });
 

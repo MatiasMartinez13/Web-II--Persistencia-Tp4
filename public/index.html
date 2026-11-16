@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Participante - Lista compartida</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Regalo grupal</h1>
+      <a href="/screen" target="_blank">Abrir pantalla compartida ↗</a>
+    </header>
+
+    <section id="join-panel" class="card">
+      <h2>Ingresá tu nombre</h2>
+      <form id="join-form">
+        <input id="name-input" type="text" maxlength="20" placeholder="Tu nombre" autocomplete="off" />
+        <button type="submit">Entrar</button>
+      </form>
+      <p class="hint">Entre 1 y 20 caracteres. Se permiten nombres repetidos.</p>
+    </section>
+
+    <main id="app" hidden>
+      <div class="bar">
+        <span>Conectado como <strong id="my-name"></strong></span>
+        <span id="status" class="status">Conectando…</span>
+      </div>
+
+      <div class="columns">
+        <section class="card">
+          <h2>Proponer productos</h2>
+          <form id="propose-form">
+            <input
+              id="ids-input"
+              type="text"
+              placeholder="Ids del catálogo, ej: 1, 5, 12"
+              autocomplete="off"
+            />
+            <button type="submit">Proponer</button>
+          </form>
+          <p class="hint">Hasta 10 ids por propuesta. Los datos se obtienen del catálogo.</p>
+          <h3>Participantes (<span id="participant-count">0</span>)</h3>
+          <ul id="participants" class="participants"></ul>
+          <h3>Resultados</h3>
+          <ul id="log" class="log"></ul>
+        </section>
+
+        <section class="card">
+          <h2>Ranking</h2>
+          <div id="products" class="products"></div>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="/participant.js"></script>
+  </body>
+</html>

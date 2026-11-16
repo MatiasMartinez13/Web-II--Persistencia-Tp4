@@ -1,0 +1,27 @@
+{
+  "name": "tp4-realtime-shared-list",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TP4 - Asincronismo e integración con Node.js y TypeScript. Lista compartida con WebSocket + SSE y catálogo externo.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/ws": "^8.5.13",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
